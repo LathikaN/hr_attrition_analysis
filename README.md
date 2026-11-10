@@ -9,7 +9,6 @@ Employee attrition is costly. Replacing an employee means spending on hiring, tr
 - How do overtime, salary, job satisfaction and tenure affect attrition?
 
 ## 2. Dataset
-## 2. Dataset
 
 ### Source
 The analysis uses two HR datasets, **HR Dataset 1** and **HR Dataset 2**, combined into one file.
@@ -116,10 +115,11 @@ Attrition rate by:
 - **Years since last promotion** shows no clear trend, so promotion timing alone does not explain attrition
 
 ## 6. Recommendations
-- (Reduce overtime in ___ department through workload balancing or hiring)
-- (Review salary for roles with the highest attrition)
-- (Improve onboarding and mentoring in the first 2 years)
-- (Run satisfaction surveys and act on the low-scoring areas)
+- Reduce overtime, since overtime employees leave at about 3x the rate of others
+- Review salaries for the under 3k slab (28.34% attrition)
+- Improve onboarding in the first year, when 34.53% of employees leave
+- Review incentives and support for Sales Representatives (39.01% attrition)
+- Reduce frequent travel and extend stock options to entry-level employees
 
 ## 7. Dashboards
 
@@ -140,22 +140,34 @@ Report 3 : Correlation and Cross Tabulation Analysis
 - [Report 3 : Correlation and Cross Tabulation Analysis](https://public.tableau.com/views/CorrelationandCrossTabulationAnalysis/Report3?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ## 8. Project Structure
+
 ```
-├── data/            Dataset (or link)
-├── sql/             SQL queries
-├── notebooks/       Python analysis
-├── excel/           Excel workbook
-├── dashboards/      Tableau, Power BI files and screenshots
-└── README.md
+hr_attrition_analysis/
+├── README.md
+├── HR ANALYTICS EXCEL.xlsx       Excel analysis and dashboard
+├── HR ANALYTICS SQL.sql          SQL queries
+├── HR ANALYTICS POWERBI.pbix     Power BI dashboard
+└── Tableau Report.twbx           Tableau reports
 ```
 
 ## 9. How to Run
-1. Clone the repo: `git clone https://github.com/YOUR-USERNAME/REPO-NAME.git`
-2. Download the dataset and place it in the `data/` folder
-3. Install libraries: `pip install pandas matplotlib seaborn jupyter`
-4. Open `notebooks/attrition_analysis.ipynb` in Jupyter and run all cells
-5. Open the `.twbx` in Tableau Public or the `.pbix` in Power BI Desktop to view the dashboards
+
+1. **Download the project:** click the green **Code** button on this repo, then **Download ZIP**, and extract it. Or clone it:
+   ```
+   git clone https://github.com/LathikaN/hr_attrition_analysis.git
+   ```
+2. **Excel:** open the `.xlsx` file in Microsoft Excel to see the pivot tables and dashboard
+3. **SQL:** open the `.sql` file in MySQL Workbench and run the queries on the dataset
+4. **Power BI:** open the `.pbix` file in Power BI Desktop (free to download)
+5. **Tableau:** open the `.twbx` file in Tableau Public (free), or view the live reports:
+   - [Report 1: Attrition Overview](https://public.tableau.com/views/AttritionOverview_17942297920660/Report1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+   - [Report 2: Attrition Driver Analysis](https://public.tableau.com/views/TableauReport_17942239119370/Report2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+   - [Report 3: Correlation and Cross Tabulation Analysis](https://public.tableau.com/views/CorrelationandCrossTabulationAnalysis/Report3?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ## Author
-**Lathika N** | B.E. EEE | Aspiring Data Analyst
-GitHub: (your profile link) | LinkedIn: (your link)
+
+**Lathika N**<br>
+B.E. Electrical and Electronics Engineering | Aspiring Data Analyst<br>
+GitHub: [LathikaN](https://github.com/LathikaN)<br>
+LinkedIn: [Lathika N](www.linkedin.com/in/lathika-n-3951782a3)<br>
+Tableau Public: [lathika.n](https://public.tableau.com/app/profile/lathika.n)
