@@ -9,37 +9,111 @@ Employee attrition is costly. Replacing an employee means spending on hiring, tr
 - How do overtime, salary, job satisfaction and tenure affect attrition?
 
 ## 2. Dataset
-- **Source:** (Kaggle / company data / other, with link)
-- **Rows:** ___ employees
-- **Columns:** ___ (Age, Department, JobRole, MonthlyIncome, OverTime, JobSatisfaction, YearsAtCompany, Attrition, etc.)
-- **Target column:** `Attrition` (Yes / No)
-- **Note:** The file is large (32.5 MB). Download it here: (paste link)
+## 2. Dataset
+
+### Source
+The analysis uses two HR datasets, **HR Dataset 1** and **HR Dataset 2**, combined into one file.
+
+| Item | Details |
+|------|---------|
+| HR Dataset 1 | 50,000 rows |
+| HR Dataset 2 | 50,000 rows |
+| Total after combining | 100,000 rows |
+| Duplicates removed | 10 rows |
+| **Final dataset** | **99,990 rows** |
+| Columns | 36 |
+| Target column | `Attrition` (Yes / No) |
+
+### Data Preparation
+1. Combined both datasets into a single table
+2. Removed duplicate records (100,000 → 99,990 rows)
+3. Checked for missing values and incorrect data types
+4. Created grouped columns (age group, salary slab, tenure band, distance band) for analysis
 
 ## 3. Tools Used
-| Tool | Purpose |
-|------|---------|
-| SQL | Querying and aggregating attrition by group |
-| Python (Pandas, Matplotlib, Seaborn) | Cleaning, EDA, visualization |
-| Excel | Pivot tables and quick summaries |
-| Tableau | Interactive dashboard |
-| Power BI | Dashboard and KPI reporting |
+
+| Tool | How I used it |
+|------|---------------|
+| **Excel** | Prepared and combined the two HR datasets, removed duplicates, analyzed the data with pivot tables, and built an interactive dashboard |
+| **SQL (MySQL Workbench)** | Imported the cleaned data from Excel and wrote SQL queries to analyze attrition by department, job role, age group, salary slab, tenure and distance |
+| **Power BI** | Imported the data from MySQL Workbench and built a dashboard with KPI cards, charts and slicers |
+| **Tableau** | Connected the data from Excel, analyzed it, and built 3 reports published on Tableau Public |
+
+### Workflow
+
+```
+Excel (prepare, combine, clean)
+   ├── MySQL Workbench (SQL analysis) ──► Power BI (dashboard)
+   └── Tableau (analysis and 3 reports)
+```
 
 ## 4. Steps Followed
-1. **Data cleaning:** checked missing values, duplicates, data types, and removed irrelevant columns
-2. **Feature preparation:** created age groups, income bands and tenure bands
-3. **Exploratory analysis:** attrition rate by department, role, age, salary, overtime and satisfaction
-4. **SQL analysis:** group-wise attrition queries (see `sql/`)
-5. **Visualization:** built dashboards in Tableau and Power BI
-6. **Insights and recommendations:** summarized findings for decision-makers
+
+### Step 1: Data Preparation (Excel)
+1. Combined HR Dataset 1 and HR Dataset 2 (50,000 rows each) into one table
+2. Removed duplicate records, reducing 100,000 rows to **98,990 rows**
+3. Checked for missing values, incorrect data types and inconsistent entries
+4. Created grouped columns: Age Group, Salary Slab, Tenure Band and Distance Band
+
+### Step 2: Analysis in Each Tool
+The data was analyzed and visualized in four tools:
+- **Excel:** pivot tables and an interactive dashboard
+- **MySQL Workbench:** data imported from Excel and analyzed using SQL queries
+- **Power BI:** data imported from MySQL Workbench, then a dashboard was built
+- **Tableau:** data connected from Excel, then 3 reports were built and published on Tableau Public
+
+### Step 3: Dashboard Reports
+Every dashboard contains 3 reports.
+
+**Report 1: Attrition Overview**
+
+Attrition rate and headcount by:
+- Department
+- Age group
+- Job role
+- Salary slab
+- Distance band
+- Tenure band
+
+**Report 2: Attrition Driver Analysis**
+
+Attrition rate by:
+- Overtime
+- Job level
+- Stock option level
+- Marital status
+- Business travel
+- Gender
+
+**Report 3: Correlation and Cross Tabulation Analysis**
+
+Attrition rate by:
+- Monthly income
+- Salary slab vs Age group
+- Years since last promotion
+
+### Step 4: Insights and Recommendations
+1. Compared attrition across all groups to find the main drivers
+2. Summarized the key insights
+3. Wrote recommendations to reduce attrition
 
 ## 5. Key Insights
-- Overall attrition rate is **___%** (___ out of ___ employees)
-- **___** department has the highest attrition (___%)
-- Employees working **overtime** have an attrition rate of ___% vs ___% for those who don't
-- Attrition is highest in the **___–___ age group**
-- Employees with **low monthly income** (below ___) leave more often
-- Most employees leave within the **first ___ years**
-- Low job satisfaction scores are linked to ___% attrition
+
+- **Overall attrition rate is 15.95%:** 15,944 of 99,990 employees have left
+- **Sales** has the highest department attrition (20.59%), and **Research & Development** has the lowest (13.65%)
+- **Sales Representatives leave the most** (39.01%), followed by Laboratory Technicians (23.42%). Research Directors leave the least (2.30%)
+- **Young employees (18-25) leave the most** (35.38%), and the **36-45** group leaves the least (9.32%)
+- **New employees leave the most** (34.53% in the first band) and **10+ year employees the least** (7.73%)
+- **Low salary means high attrition:** 28.34% for under 3k and only 4.58% for 16k+
+- **Overtime triples attrition:** about 32% for employees working overtime vs about 11% for those who don't
+- **Single employees leave the most** (25.53%), compared with 12.25% for married and 9.59% for divorced
+- **Frequent travellers leave more:** 27.21% for Travel_Frequently vs 10.11% for Non-Travel
+- **Job level 1 has the highest attrition** (about 26%), and level 2 the lowest (about 10%)
+- **Employees with no stock options leave more** (about 25%) than those with level 1 options (about 11%)
+- **Attrition rises with distance from home:** 13.35% for 0 to 5 km and 21.41% for 21+ km
+- **Gender:** male 16.79%, female 14.67%
+- **Age and salary together:** employees aged 18-25 earning under 3k have the highest attrition (43%)
+- **Years since last promotion** shows no clear trend, so promotion timing alone does not explain attrition
 
 ## 6. Recommendations
 - (Reduce overtime in ___ department through workload balancing or hiring)
